@@ -1,0 +1,13 @@
+/* Write your code here. */
+.container {
+  padding: 30px;
+  margin: 30px;
+  list-style-type: none;
+  background-color: #9796f0;
+  border-radius: 20px;
+}
+.but {
+  border: none;
+  cursor: pointer;
+  background-color: #9796f0;
+}

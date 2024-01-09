@@ -1,0 +1,18 @@
+/* Write your code here. */
+.navBar {
+  background-color: #9796f0;
+  display: flex;
+  justify-content: space-around;
+}
+.emojiImage {
+  height: 100px;
+  width: 100px;
+}
+.row_wise {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1000px;
+  background-image: linear-gradient(to bottom, #6a59ff, #fbc7d4);
+}

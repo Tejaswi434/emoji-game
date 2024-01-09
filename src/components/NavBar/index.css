@@ -1,0 +1,31 @@
+/* Write your code here. */
+.whiteColor {
+  color: white;
+  margin-left: 60px;
+  font-size: 50px;
+}
+.emojiLogo {
+  display: flex;
+  flex-direction: row;
+  background-color: #9796f0;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.score {
+  color: white;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 40px;
+}
+.topScore {
+  color: white;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 40px;
+  margin-left: 30px;
+}
+.rowing {
+  display: flex;
+  flex-direction: row;
+}
