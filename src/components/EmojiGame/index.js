@@ -6,6 +6,8 @@ import EmojiCard from '../EmojiCard'
 
 import NavBar from '../NavBar'
 
+import WinorLoss from '../WinOrLoseCard'
+
 /*
  const {emojisList} = this.props
 const shuffledEmojisList = () => {
@@ -18,6 +20,23 @@ class EmojiGame extends Component {
     topScore: 0,
     isGameProgress: true,
     renderingList: [],
+  }
+
+  resetGame = () => {
+    this.setState({renderingList: [], isGameProgress: true})
+  }
+
+  renderScoreCard = () => {
+    const {emojisList} = this.props
+    const {renderingList} = this.state
+    const isWon = emojisList.length === renderingList
+    return (
+      <WinorLoss
+        isWon={isWon}
+        score={renderingList.length}
+        onClickPlayAgain={this.resetGame}
+      />
+    )
   }
 
   finishGame = clickedImageLength => {
@@ -38,7 +57,7 @@ class EmojiGame extends Component {
     if (isPresent) {
       this.finishGame(clickedImageLength)
     } else {
-      if (clickedImageLength - 1 === emojisList.length) {
+      if (clickedImageLength === emojisList.length - 1) {
         this.finishGame(clickedImageLength)
       }
       this.setState(prevState => ({
@@ -77,7 +96,7 @@ class EmojiGame extends Component {
           <NavBar topScore={topScore} currentScore={renderingList.length} />
         </div>
         <ul className="emojiCard">
-          {isGameProgress ? this.renderingTheImages() : this.stoppingGame()}
+          {isGameProgress ? this.renderingTheImages() : this.renderScoreCard()}
         </ul>
       </div>
     )
