@@ -1,9 +1,8 @@
-// Write your code here.
 import './index.css'
 
 const EmojiCard = props => {
   const {emojiDetails, clickingImage} = props
-  const {emojiUrl, id} = emojiDetails
+  const {emojiUrl, id, emojiName} = emojiDetails
 
   const single = () => {
     clickingImage(id)
@@ -11,7 +10,7 @@ const EmojiCard = props => {
 
   return (
     <li className="container">
-      <button className="but" onClick={single}>
+      <button className="but" onClick={single} type="button">
         <img src={emojiUrl} alt={emojiName} />
       </button>
     </li>
@@ -19,3 +18,4 @@ const EmojiCard = props => {
 }
 
 export default EmojiCard
+
