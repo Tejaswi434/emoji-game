@@ -6,18 +6,22 @@ const loose = 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
 const WinorLose = props => {
   const {isWon, score, onClickPlayAgain} = props
   const imageUrl = isWon ? win : loose
-  const gameStatus = isWon ? 'You Won' : 'You loose'
-  const bestScore = isWon ? 'BestScore' : 'Score'
+  const gameStatus = isWon ? 'You Won' : 'You Lose'
+  const bestScore = isWon ? 'Best Score' : 'Score'
+
   return (
-    <div>
-      <div>
+    <div className="back_1">
+      <div className="back_2">
         <h1>{gameStatus}</h1>
-        <p>{bestScore}</p>
-        <p>{gameStatus}</p>
-        <button onClick={onClickPlayAgain}>playAgain</button>
+        <p className="scoreColor">{bestScore}</p>
+
+        <p className="number">{score}/12</p>
+        <button onClick={onClickPlayAgain} className="yellow" type="button">
+          Play Again
+        </button>
       </div>
       <div>
-        <img src={imageUrl} />
+        <img src={imageUrl} alt="win or lose" />
       </div>
     </div>
   )
