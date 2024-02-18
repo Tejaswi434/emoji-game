@@ -8,13 +8,6 @@ import NavBar from '../NavBar'
 
 import WinorLoss from '../WinOrLoseCard'
 
-/*
- const {emojisList} = this.props
-const shuffledEmojisList = () => {
-  return emojisList.sort(() => Math.random() - 0.5)
-}
-*/
-
 class EmojiGame extends Component {
   state = {
     topScore: 0,
@@ -23,13 +16,17 @@ class EmojiGame extends Component {
   }
 
   resetGame = () => {
+    const {topScore, score} = this.state
+    if (score > topScore) {
+      this.setState({renderingList: [], isGameProgress: true, topScore: score})
+    }
     this.setState({renderingList: [], isGameProgress: true})
   }
 
   renderScoreCard = () => {
     const {emojisList} = this.props
     const {renderingList} = this.state
-    const isWon = emojisList.length === renderingList
+    const isWon = emojisList.length === renderingList.length
     return (
       <WinorLoss
         isWon={isWon}
@@ -41,11 +38,11 @@ class EmojiGame extends Component {
 
   finishGame = clickedImageLength => {
     const {topScore} = this.state
-    let value = topScore
-    if (topScore < clickedImageLength) {
-      value = clickedImageLength
+    let valueOne = topScore
+    if (topScore <= clickedImageLength) {
+      valueOne = clickedImageLength
     }
-    this.setState({topScore: value, isGameProgress: false})
+    this.setState({topScore: valueOne, isGameProgress: false})
   }
 
   clickingImage = id => {
@@ -58,7 +55,7 @@ class EmojiGame extends Component {
       this.finishGame(clickedImageLength)
     } else {
       if (clickedImageLength === emojisList.length - 1) {
-        this.finishGame(clickedImageLength)
+        this.finishGame(emojisList.length)
       }
       this.setState(prevState => ({
         renderingList: [...prevState.renderingList, id],
